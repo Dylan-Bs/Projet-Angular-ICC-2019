@@ -8,6 +8,7 @@ import { GestionDesComptesComponent } from './gestion-des-comptes/gestion-des-co
   declarations: [GestionDesComptesComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports : [AdminModule]
 })
 export class AdminModule { }

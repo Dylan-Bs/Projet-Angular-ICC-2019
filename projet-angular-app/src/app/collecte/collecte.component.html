@@ -1,1 +1,127 @@
-<p>collecte works!</p>
+<section>
+  <form *ngIf="!conne.connecte" class="create-form" [formGroup]="exampleForm" novalidate
+    (ngSubmit)="onSubmit(exampleForm.value)">
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput type="email" placeholder="Adresse électronique" class="form-control" formControlName="email">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <mat-error
+          *ngIf="exampleForm.get('email').hasError(validation.type) && (exampleForm.get('email').dirty || exampleForm.get('email').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput type="password" placeholder="Mot de passe" class="form-control" formControlName="password">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <mat-error
+          *ngIf="exampleForm.get('password').hasError(validation.type) && (exampleForm.get('password').dirty || exampleForm.get('password').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput placeholder="Nom" class="form-control" formControlName="name">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <mat-error
+          *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput placeholder="Prénom" class="form-control" formControlName="surname">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.surname">
+        <mat-error
+          *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput type="number" placeholder="Promotion" class="form-control" formControlName="promo">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.promo">
+        <mat-error
+          *ngIf="exampleForm.get('promo').hasError(validation.type) && (exampleForm.get('promo').dirty || exampleForm.get('promo').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <mat-label>Option ING3</mat-label>
+        <mat-select formControlName="optionsIng3Control">
+          <mat-option>-- Aucun --</mat-option>
+          <mat-optgroup *ngFor="let group of optionsIng3Groups" [label]="group.name" [disabled]="group.disabled">
+            <mat-option *ngFor="let option of group.option" [value]="option.value">
+              {{option.viewValue}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput placeholder="Entreprise" class="form-control" formControlName="entreprise">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.entreprise">
+        <mat-error
+          *ngIf="exampleForm.get('entreprise').hasError(validation.type) && (exampleForm.get('entreprise').dirty || exampleForm.get('entreprise').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput placeholder="Ville travail" class="form-control" formControlName="ville">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.ville">
+        <mat-error
+          *ngIf="exampleForm.get('ville').hasError(validation.type) && (exampleForm.get('ville').dirty || exampleForm.get('ville').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-style">
+        <input matInput type="number" placeholder="Salaire" class="form-control" formControlName="salaire">
+      </mat-form-field>
+      <ng-container *ngFor="let validation of validation_messages.salaire">
+        <mat-error
+          *ngIf="exampleForm.get('salaire').hasError(validation.type) && (exampleForm.get('salaire').dirty || exampleForm.get('salaire').touched)">
+          {{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+      <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate" [labelPosition]="labelPosition"
+        [disabled]="disabled" formControlName="autorisationCollecte">
+        J'autorise la collecte et mise à jour numérique des informations de ce formulaire
+      </mat-checkbox>
+    </div>
+
+    <div class="row submit-button-container">
+      <div class="col-md-4">
+        <button mat-raised-button class="submit-button" color="primary" type="submit"
+          [disabled]="!exampleForm.valid">Inscription</button>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="conne.connecte">
+    <p>Vous êtes connecté</p>
+    <button (click)="conne.connecte = false ">Déconnexion</button>
+  </div>
+
+</section>

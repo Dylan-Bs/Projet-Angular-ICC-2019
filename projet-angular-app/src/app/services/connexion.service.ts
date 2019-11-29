@@ -5,5 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class ConnexionService {
 
-  constructor() { }
+  connecte:boolean;
+  role:Number;
+  // userId:String;
+
+  constructor() {
+    this.connecte=false;
+    this.role=0;
+    // this.userId='';
+   }
 }

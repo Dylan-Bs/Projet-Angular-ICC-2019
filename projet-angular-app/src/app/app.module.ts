@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +13,14 @@ import { CollecteComponent } from './collecte/collecte.component';
 import { RgpdComponent } from './rgpd/rgpd.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
+import { ConnexionService } from './services/connexion.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule } from '@angular/material';
+import { GestionDesComptesComponent } from './extranet/admin/gestion-des-comptes/gestion-des-comptes.component';
+import { EditionComponent } from './extranet/etudiant/edition/edition.component';
+import { StatsComponent } from './extranet/prof/stats/stats.component';
+import { EditUserComponent } from './extranet/admin/edit-user/edit-user.component';
+import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver';
 
 @NgModule({
   declarations: [
@@ -18,13 +30,31 @@ import { Erreur404Component } from './erreur404/erreur404.component';
     CollecteComponent,
     RgpdComponent,
     ConnexionComponent,
-    Erreur404Component
+    Erreur404Component,
+    GestionDesComptesComponent,
+    StatsComponent,
+    EditUserComponent,
+    EditionComponent    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSliderModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ConnexionService, EditUserResolver],
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivate, CanLoad, Route, Router, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConnexionService } from './connexion.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanLoad {
-  
+export class AdminGuard implements CanActivate, CanLoad {
+
   constructor(private conne:ConnexionService, private router: Router){
 
   }
-  
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!this.conne.connecte) {
+      if (this.conne.role!=2) {
         // Si pas d'utilisateur connecté : redirection vers la page de connexion
-        console.log('Vous n\'êtes pas connectés');
+        console.log('Vous n\'avez pas les autorisations suffisantes');
         this.router.navigate(['/connexion']);
+        return false;
       }
-      return this.conne.connecte;
+      return true;
   }
   canLoad(
     route: Route,

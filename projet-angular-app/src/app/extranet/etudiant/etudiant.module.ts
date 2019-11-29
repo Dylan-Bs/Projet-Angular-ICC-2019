@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EditionComponent } from './edition/edition.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [EditionComponent],
   imports: [
     CommonModule
   ]
