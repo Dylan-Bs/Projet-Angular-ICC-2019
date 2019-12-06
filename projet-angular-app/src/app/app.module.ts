@@ -15,12 +15,16 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { ConnexionService } from './services/connexion.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { GestionDesComptesComponent } from './extranet/admin/gestion-des-comptes/gestion-des-comptes.component';
+import { ListeEtudComponent } from './extranet/prof/liste-etud/liste-etud.component';
 import { EditionComponent } from './extranet/etudiant/edition/edition.component';
+import { EditionResolver } from './extranet/etudiant/edition/edition.resolver';
 import { StatsComponent } from './extranet/prof/stats/stats.component';
 import { EditUserComponent } from './extranet/admin/edit-user/edit-user.component';
 import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver'
     GestionDesComptesComponent,
     StatsComponent,
     EditUserComponent,
-    EditionComponent    
+    EditionComponent,
+    ListeEtudComponent    
   ],
   imports: [
     BrowserModule,
@@ -50,9 +55,10 @@ import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver'
     MatDialogModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
-  providers: [ConnexionService, EditUserResolver],
+  providers: [ConnexionService, EditUserResolver, EditionResolver],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

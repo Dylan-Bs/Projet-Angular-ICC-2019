@@ -48,8 +48,8 @@ export class ConnexionComponent implements OnInit {
         if(this.user.length>0){
           this.conne.connecte = true;
           this.conne.role=this.user[0].payload.doc.data().role;
-          // this.conne.userId=this.user[0].payload.doc.id;
-          console.log("utilisateur authentifié, role:"+this.conne.role);
+          this.conne.userId=this.user[0].payload.doc.id;
+          console.log("utilisateur authentifié, role:"+this.conne.role+"userID:"+this.conne.userId);
         }
       }
     )

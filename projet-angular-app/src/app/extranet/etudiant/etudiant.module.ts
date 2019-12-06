@@ -8,6 +8,7 @@ import { EditionComponent } from './edition/edition.component';
   declarations: [EditionComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [EditionComponent]
 })
 export class EtudiantModule { }

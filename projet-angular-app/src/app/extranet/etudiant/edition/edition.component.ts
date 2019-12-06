@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { FirebaseService } from '../../../services/firebase.service';
+import { ConnexionService } from '../../../services/connexion.service';
 import { Router } from '@angular/router';
 
 export interface option {
@@ -19,7 +20,7 @@ export interface optionsIng3Group {
 @Component({
   selector: 'app-edition',
   templateUrl: './edition.component.html',
-  styleUrls: ['./edition.component.css']
+  styleUrls: ['./edition.component.scss']
 })
 export class EditionComponent implements OnInit {
 
@@ -47,6 +48,7 @@ export class EditionComponent implements OnInit {
 
   constructor(
     public firebaseService: FirebaseService,
+    public conne: ConnexionService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
@@ -75,6 +77,7 @@ export class EditionComponent implements OnInit {
       entreprise: [this.item.entreprise, Validators.required ],
       ville: [this.item.ville, Validators.required ],
       salaire: [this.item.salaire, Validators.required ],
+      role: [this.item.role, Validators.required ],
     });
   }
 
@@ -83,16 +86,17 @@ export class EditionComponent implements OnInit {
     this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/edit/'+this.item.id]);
       }
     )
   }
 
-  delete(){
-    this.firebaseService.deleteUser(this.item.id)
+  anonymisation(value){
+    this.firebaseService.anonymiser(this.item.id, value)
     .then(
       res => {
         this.router.navigate(['/']);
+        this.conne.connecte=false;
       },
       err => {
         console.log(err);

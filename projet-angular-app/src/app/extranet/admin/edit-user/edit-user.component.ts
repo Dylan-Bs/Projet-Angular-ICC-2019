@@ -81,6 +81,7 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(value){
     value.age = Number(value.age);
+    console.log(value)
     this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {
