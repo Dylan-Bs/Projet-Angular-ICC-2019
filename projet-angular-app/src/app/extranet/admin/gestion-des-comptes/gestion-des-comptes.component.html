@@ -1,13 +1,9 @@
+<br />
 <div class="row">
     <div class="col-md-4 offset-md-1">
         <div class="input-group">
             <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}"
                 placeholder="Recherche par nom..." (keyup)="searchByName()">
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    <ion-icon class="icon" name="search"></ion-icon>
-                </span>
-            </div>
         </div>
     </div>
     <div class="col-md-6 filter-by-promo">
@@ -26,6 +22,7 @@
     </div>
 </div>
 
+<!-- Liste des utilisateurs dans la bdd -->
 <div class="list-group users-list">
     <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="row">

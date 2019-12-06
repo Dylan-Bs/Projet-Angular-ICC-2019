@@ -21,9 +21,9 @@ const routes: Routes = [
   {path:'formulaire', component:CollecteComponent},
   {path:'rgpd', component:RgpdComponent},
   {path:'connexion', component:ConnexionComponent},
-  {path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},
+  //{path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},
   {path:'stats', canActivate: [AuthGuard, ProfGuard], component:StatsComponent},
-  // {path:'admin', component:GestionDesComptesComponent}, // pour le dev
+  {path:'admin', component:GestionDesComptesComponent}, // pour le dev
   // {path:'stats', component:StatsComponent},
   // {path:'admin', canActivate: [AuthGuard], loadChildren: './extranet/extranet.module#AdminModule' },
   {path: 'details/:id', component: EditUserComponent, resolve:{data : EditUserResolver} },

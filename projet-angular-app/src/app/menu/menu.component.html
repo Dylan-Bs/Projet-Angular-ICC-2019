@@ -1,12 +1,17 @@
 <nav>
-    <ul>
-        <li><a href routerLink='/'>Accueil</a></li>
-        <li><a href routerLink='/formulaire'>Formulaire</a></li>
-        <li><a href routerLink='/rgpd'>Règle RGPD</a></li>
-        <li *ngIf="conne.connecte == false"><a href routerLink='/connexion'>Connexion</a></li>
-        <li *ngIf="conne.connecte == true"><a href routerLink='/connexion'>Déconnexion</a></li>
-        <li *ngIf="conne.role>1"><a href routerLink='/admin'>admin</a></li>
-        <li *ngIf="conne.role>0"><a href routerLink='/stats'>stats</a></li>
-        <li *ngIf="conne.role==0 && conne.connecte == true"><a href routerLink='/edit'>editer son profil</a></li>
-    </ul>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <ul>
+                <li><a href routerLink='/'>Accueil</a></li>
+                <li *ngIf="conne.connecte == false"><a href routerLink='/formulaire'>Formulaire</a></li>
+                <li><a href routerLink='/rgpd'>Règle RGPD</a></li>
+                <li *ngIf="conne.connecte == false"><a href routerLink='/connexion'>Connexion</a></li>
+                <!-- <li *ngIf="conne.role>1 && conne.connecte == true"><a href routerLink='/admin'>Administration</a></li> -->
+                <li><a href routerLink='/admin'>Liste des utilisateurs</a></li> 
+                <li *ngIf="conne.role>0 && conne.connecte == true"><a href routerLink='/stats'>Statistiques</a></li>
+                <li *ngIf="conne.role==0 && conne.connecte == true"><a href routerLink='/edit'>Profil</a></li>
+                <li *ngIf="conne.connecte == true"><a href routerLink='/connexion'>Déconnexion</a></li>
+            </ul>
+        </mat-toolbar-row>
+    </mat-toolbar>
 </nav>

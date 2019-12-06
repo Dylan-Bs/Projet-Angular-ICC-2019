@@ -15,7 +15,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { ConnexionService } from './services/connexion.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
 import { GestionDesComptesComponent } from './extranet/admin/gestion-des-comptes/gestion-des-comptes.component';
 import { EditionComponent } from './extranet/etudiant/edition/edition.component';
 import { StatsComponent } from './extranet/prof/stats/stats.component';
@@ -49,7 +49,8 @@ import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver'
     MatSliderModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule
   ],
   providers: [ConnexionService, EditUserResolver],
   bootstrap: [AppComponent],

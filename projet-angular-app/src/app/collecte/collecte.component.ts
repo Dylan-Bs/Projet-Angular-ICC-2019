@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { ConnexionService } from '../services/connexion.service';
 
@@ -46,17 +44,16 @@ export class CollecteComponent implements OnInit {
   ];
   
 
-  checked = false;
   indeterminate = false;
   labelPosition = 'after';
   disabled = false;
 
   validation_messages = {
    'name': [
-     { type: 'required', message: 'Name is required.' }
+     { type: 'required', message: 'Le nom est requis' }
    ],
    'surname': [
-     { type: 'required', message: 'Surname is required.' }
+     { type: 'required', message: 'Le prénom est requis' }
    ],
    'promo': [
      { type: 'required', message: 'Promo is required. Between 2000 and 2100' },
@@ -65,8 +62,6 @@ export class CollecteComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog,
-    private router: Router,
     public firebaseService: FirebaseService,
     public conne:ConnexionService
   ) { }
@@ -83,10 +78,10 @@ export class CollecteComponent implements OnInit {
       surname: ['', Validators.required ],
       promo: ['', Validators.required ],
       optionsIng3Control: ['', Validators.required ],
-      entreprise: ['', Validators.required ],
-      ville: ['', Validators.required ],
-      salaire: ['', Validators.required ],
-      autorisationCollecte: ['', Validators.required ]
+      entreprise: [''],
+      ville: [''],
+      salaire: ['' ],
+      autorisationCollecte: ['']
     });
   }
 
@@ -99,10 +94,10 @@ export class CollecteComponent implements OnInit {
       surname: new FormControl('', Validators.required),
       promo: new FormControl('', Validators.required),
       optionsIng3Control: new FormControl('', Validators.required),
-      entreprise: new FormControl('', Validators.required),
-      ville: new FormControl('', Validators.required),
-      salaire: new FormControl('', Validators.required),
-      autorisationCollecte: new FormControl('', Validators.required)
+      entreprise: new FormControl(''),
+      ville: new FormControl(''),
+      salaire: new FormControl(''),
+      autorisationCollecte: new FormControl('')
     });
   }
 

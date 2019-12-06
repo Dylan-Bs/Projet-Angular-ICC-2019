@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Identification } from '../interfaces/identification';
 import { MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
 import { ConnexionService } from '../services/connexion.service';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -19,7 +18,6 @@ export class ConnexionComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private router: Router,
     public firebaseService: FirebaseService,
     public conne:ConnexionService
   ) { }
