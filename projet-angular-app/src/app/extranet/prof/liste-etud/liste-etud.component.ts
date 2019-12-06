@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
+import { ConnexionService } from '../../../services/connexion.service';
+
 
 @Component({
   selector: 'app-liste-etud',
@@ -17,6 +19,7 @@ export class ListeEtudComponent implements OnInit {
 
   constructor(
     public firebaseService: FirebaseService,
+    public conne: ConnexionService,
     private router: Router
   ) { }
 
@@ -25,7 +28,7 @@ export class ListeEtudComponent implements OnInit {
   }
 
   getData() {
-    this.firebaseService.getUsers()
+    this.firebaseService.getEtudByOption(this.conne.userOption)
       .subscribe(result => {
         this.items = result;
         this.promo_filtered_items = result;

@@ -49,7 +49,8 @@ export class ConnexionComponent implements OnInit {
           this.conne.connecte = true;
           this.conne.role=this.user[0].payload.doc.data().role;
           this.conne.userId=this.user[0].payload.doc.id;
-          console.log("utilisateur authentifié, role:"+this.conne.role+"userID:"+this.conne.userId);
+          this.conne.userOption=this.user[0].payload.doc.data().optionsIng3Control;
+          console.log("utilisateur authentifié, role:"+this.conne.role+"userID:"+this.conne.userId+"option:"+this.conne.userOption);
         }
       }
     )

@@ -9,6 +9,7 @@ export class FirebaseService {
   constructor(public db: AngularFirestore) { }
 
   getUser(userKey) {
+    console.log(this.db.collection('users').doc(userKey).snapshotChanges())
     return this.db.collection('users').doc(userKey).snapshotChanges();
   }
 
@@ -61,6 +62,11 @@ export class FirebaseService {
     return this.db.collection('users', etudiant => etudiant
       .where('role', '==', 0))
       .snapshotChanges();
+  }
+
+  getEtudByOption(optioning3) {
+    return this.db.collection('users', ref => ref.where('optionsIng3Control', '==', optioning3))
+      .snapshotChanges()
   }
 
   anonymiser(userKey, value) {
