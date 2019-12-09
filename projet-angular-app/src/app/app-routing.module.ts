@@ -16,6 +16,8 @@ import { EditionResolver } from './extranet/etudiant/edition/edition.resolver';
 // prof
 import { ListeEtudComponent } from './extranet/prof/liste-etud/liste-etud.component';
 import { StatsComponent } from './extranet/prof/stats/stats.component';
+import { ViewDetailsComponent } from './extranet/prof/view-details/view-details.component';
+import { ViewDetailsResolver } from './extranet/prof/view-details/view-details.resolver';
 // admin
 import { GestionDesComptesComponent } from './extranet/admin/gestion-des-comptes/gestion-des-comptes.component';
 import { EditUserComponent } from './extranet/admin/edit-user/edit-user.component';
@@ -30,6 +32,7 @@ const routes: Routes = [
   // {path:'stats', component:StatsComponent},
   { path: 'stats', canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
   { path: 'prof', canActivate: [AuthGuard, ProfGuard], component: ListeEtudComponent },
+  { path: 'view/:id', component: ViewDetailsComponent, resolve: { data: ViewDetailsResolver } },
   // {path:'admin', canActivate: [AuthGuard], loadChildren: './extranet/extranet.module#AdminModule' },
   //{ path: 'admin', component: GestionDesComptesComponent }, // pour le dev
   {path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},

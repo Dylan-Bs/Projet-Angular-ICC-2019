@@ -11,7 +11,7 @@
                 <li *ngIf="conne.role==1 && conne.connecte == true"><a href routerLink='/prof'>Etudiants de l'option</a></li>
                 <!-- <li><a href routerLink='/admin'>Liste des utilisateurs</a></li>  -->
                 <li *ngIf="conne.role==1 && conne.connecte == true"><a href routerLink='/stats'>Statistiques</a></li>
-                <li *ngIf="conne.role==0 && conne.connecte == true"><a href routerLink='/edit'>Profil</a></li>
+                <li *ngIf="conne.role==0 && conne.connecte == true"><a href routerLink='/edit/{{conne.userId}}'>Profil</a></li>
                 <!-- <li><a href routerLink='/edit/{{conne.userId}}'>Profil</a></li> -->
                 <li *ngIf="conne.connecte == true"><a href routerLink='/connexion'>Déconnexion</a></li>
             </ul>

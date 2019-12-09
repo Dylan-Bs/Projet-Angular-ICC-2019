@@ -1,5 +1,5 @@
 <section>
-  <form *ngIf="!conne.connecte" class="create-form" [formGroup]="exampleForm" novalidate
+  <form *ngIf="!conne.form_send" class="create-form" [formGroup]="exampleForm" novalidate
     (ngSubmit)="onSubmit(exampleForm.value)">
 
     <div class="form-group">
@@ -115,9 +115,7 @@
       [disabled]="!exampleForm.valid">Inscription</button>
   </form>
 
-  <!-- <div *ngIf="conne.connecte">
-    <p>Vous êtes connecté</p>
-    <button (click)="conne.connecte = false ">Déconnexion</button>
-  </div> -->
-
+  <div *ngIf="conne.form_send">
+    <p>Vos données ont été transmises, merci pour votre coopération</p>
+  </div>
 </section>

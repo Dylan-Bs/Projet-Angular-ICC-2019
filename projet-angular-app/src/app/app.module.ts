@@ -23,6 +23,8 @@ import { EditionResolver } from './extranet/etudiant/edition/edition.resolver';
 import { StatsComponent } from './extranet/prof/stats/stats.component';
 import { EditUserComponent } from './extranet/admin/edit-user/edit-user.component';
 import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver';
+import { ViewDetailsComponent } from './extranet/prof/view-details/view-details.component';
+import { ViewDetailsResolver } from './extranet/prof/view-details/view-details.resolver';
 
 
 
@@ -39,7 +41,8 @@ import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver'
     StatsComponent,
     EditUserComponent,
     EditionComponent,
-    ListeEtudComponent    
+    ListeEtudComponent,
+    ViewDetailsComponent    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { EditUserResolver } from './extranet/admin/edit-user/edit-user.resolver'
     MatToolbarModule,
     MatIconModule
   ],
-  providers: [ConnexionService, EditUserResolver, EditionResolver],
+  providers: [ConnexionService, EditUserResolver, EditionResolver, ViewDetailsResolver],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

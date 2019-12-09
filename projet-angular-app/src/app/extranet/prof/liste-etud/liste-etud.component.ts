@@ -7,7 +7,7 @@ import { ConnexionService } from '../../../services/connexion.service';
 @Component({
   selector: 'app-liste-etud',
   templateUrl: './liste-etud.component.html',
-  styleUrls: ['./liste-etud.component.css']
+  styleUrls: ['./liste-etud.component.scss']
 })
 export class ListeEtudComponent implements OnInit {
 
@@ -37,7 +37,7 @@ export class ListeEtudComponent implements OnInit {
   }
 
   viewDetails(item) {
-    this.router.navigate(['/details/' + item.payload.doc.id]);
+    this.router.navigate(['/view/' + item.payload.doc.id]);
   }
 
   capitalizeFirstLetter(value) {

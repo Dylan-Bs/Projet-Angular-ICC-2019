@@ -63,7 +63,7 @@ export class CollecteComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public firebaseService: FirebaseService,
-    public conne:ConnexionService
+    public conne:ConnexionService,
   ) { }
 
   ngOnInit() {
@@ -108,10 +108,9 @@ export class CollecteComponent implements OnInit {
     .then(
       res => {
         this.resetFields();
-        // this.router.navigate(['/']);
-        this.conne.connecte = true
-        this.conne.role = 0
-        console.log("utilisateur connecté");
+        //this.router.navigate(['/']);
+        this.conne.form_send=true;
+        console.log("formulaire envoyé avec succès");
       }
     )
   }

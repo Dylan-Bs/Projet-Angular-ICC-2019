@@ -6,12 +6,14 @@ import { Injectable } from '@angular/core';
 export class ConnexionService {
 
   connecte:boolean;
+  form_send:boolean;
   role:Number;
   userId:String;
   userOption:String;
 
   constructor() {
     this.connecte=false;
+    this.form_send=false;
     this.role=0;
     this.userId='';
     this.userOption='';
