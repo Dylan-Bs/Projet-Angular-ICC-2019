@@ -12,7 +12,7 @@ login: prof
 password: prof
 
 Pour un étudiant:
-login: test@eisti.eu
+login: test
 password: test
 
 Le projet se lance avec la commande npm install puis npm start.
