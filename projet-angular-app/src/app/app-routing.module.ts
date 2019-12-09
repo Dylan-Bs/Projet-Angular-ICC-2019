@@ -26,14 +26,14 @@ const routes: Routes = [
   { path: 'formulaire', component: CollecteComponent },
   { path: 'rgpd', component: RgpdComponent },
   { path: 'connexion', component: ConnexionComponent },
-  //{path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},
-  { path: 'stats', canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
-  { path: 'admin', component: GestionDesComptesComponent }, // pour le dev
-  { path: 'prof', component: ListeEtudComponent },
-  // {path:'stats', component:StatsComponent},
-  // {path:'admin', canActivate: [AuthGuard], loadChildren: './extranet/extranet.module#AdminModule' },
-  { path: 'details/:id', component: EditUserComponent, resolve: { data: EditUserResolver } },
   { path: 'edit/:id', component: EditionComponent, resolve: { data: EditionResolver } },
+  // {path:'stats', component:StatsComponent},
+  { path: 'stats', canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
+  { path: 'prof', canActivate: [AuthGuard, ProfGuard], component: ListeEtudComponent },
+  // {path:'admin', canActivate: [AuthGuard], loadChildren: './extranet/extranet.module#AdminModule' },
+  //{ path: 'admin', component: GestionDesComptesComponent }, // pour le dev
+  {path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},
+  { path: 'details/:id', component: EditUserComponent, resolve: { data: EditUserResolver } },
   { path: '**', component: Erreur404Component }
 ];
 
