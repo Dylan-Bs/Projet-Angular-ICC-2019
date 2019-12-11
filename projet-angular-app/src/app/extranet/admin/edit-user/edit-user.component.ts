@@ -85,7 +85,7 @@ export class EditUserComponent implements OnInit {
     this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['extranet/admin']);
       }
     )
   }
@@ -94,7 +94,7 @@ export class EditUserComponent implements OnInit {
     this.firebaseService.deleteUser(this.item.id)
     .then(
       res => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['extranet/admin']);
       },
       err => {
         console.log(err);
@@ -103,7 +103,7 @@ export class EditUserComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['/admin']);
+    this.router.navigate(['extranet/admin']);
   }
 
 }

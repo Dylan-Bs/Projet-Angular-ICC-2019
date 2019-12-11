@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminModule } from './admin/admin.module';
 import { ProfModule } from './prof/prof.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
+import { ExtranetfRoutingModule } from './extranet-routing.module';
 
 
 
@@ -10,12 +11,10 @@ import { EtudiantModule } from './etudiant/etudiant.module';
   declarations: [],
   imports: [
     CommonModule,
+    ExtranetfRoutingModule,
     AdminModule, 
     ProfModule, 
     EtudiantModule 
   ],
-  exports: [
-    AdminModule
-  ]
 })
 export class ExtranetModule { }

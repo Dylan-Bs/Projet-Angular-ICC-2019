@@ -86,7 +86,7 @@ export class EditionComponent implements OnInit {
     this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {
-        this.router.navigate(['/edit/'+this.item.id]);
+        this.router.navigate(['/']);
       }
     )
   }
