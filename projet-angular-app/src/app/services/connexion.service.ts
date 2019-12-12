@@ -16,6 +16,6 @@ export class ConnexionService {
     this.form_send=false;
     this.role=0;
     this.userId='';
-    this.userOption='imsi'; //pour le dev, bug avec les profs
+    this.userOption=''; //pour le dev, bug avec les profs
    }
 }
