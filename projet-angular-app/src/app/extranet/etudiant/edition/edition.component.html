@@ -6,7 +6,7 @@
         </nav>
         <div class="page-content">
           <div class="row">
-            <div class="col col-md-8">
+            <div class="col col-md-8 form-container">
       
               <form class="edit-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
                 <div class="form-group">
@@ -71,11 +71,11 @@
                 </div>
      
                 <div class="row submit-button-container">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <button mat-raised-button class="submit-button" color="primary" type="submit"
                       [disabled]="!exampleForm.valid">Enregistrer</button>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-5 ">
                     <button mat-raised-button class="delete-button" color="warn" type="button"
                       (click)="anonymisation(exampleForm.value)">Supprimer son compte (anonymisation)</button>
                   </div>

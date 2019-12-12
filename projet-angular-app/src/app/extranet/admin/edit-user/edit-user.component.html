@@ -6,7 +6,7 @@
   </nav>
   <div class="page-content">
     <div class="row">
-      <div class="col col-md-8">
+      <div class="col col-md-8 form-container">
 
         <form class="edit-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
           <div class="form-group">
@@ -77,14 +77,18 @@
           </div>
 
 
-          <div class="row submit-button-container">
-            <div class="col-md-4">
-              <button mat-raised-button class="submit-button" color="primary" type="submit"
-                [disabled]="!exampleForm.valid">Save</button>
+          <div class="submit-button-container d-flex">
+            <div class="col-md-3">
+              <button mat-raised-button class="return-button" color="accent" type="button"
+                routerLink="/extranet/admin"><i class="material-icons">navigate_before</i> Retour</button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <button mat-raised-button class="submit-button" color="primary" type="submit"
+                [disabled]="!exampleForm.valid"><i class="material-icons">save</i> Sauvegarder</button>
+            </div>
+            <div class="col-md-3">
               <button mat-raised-button class="delete-button" color="warn" type="button"
-                (click)="delete()">Delete</button>
+                (click)="delete()"><i class="material-icons">delete</i> Supprimer</button>
             </div>
           </div>
         </form>

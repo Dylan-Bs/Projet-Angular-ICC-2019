@@ -1,14 +1,26 @@
 .edit-page {
+  padding: 20px 60px;
 
-    padding: 20px 60px;
-  
-    .page-content {
-      background-color: #FFF;
-  
-      .edit-form {
-        padding: 20px;
-  
+  .page-content {
+    background-color: #fff;
+
+    .edit-form {
+      padding: 20px;
+      text-align: center;
+
+      .submit-button-container {
+        justify-content: center;
+
+        .return-button {
+          width: 100%;
+        }
+      }
+      .input-style {
+        width: 50%;
       }
     }
   }
-  
+}
+.form-container {
+  margin: auto;
+}

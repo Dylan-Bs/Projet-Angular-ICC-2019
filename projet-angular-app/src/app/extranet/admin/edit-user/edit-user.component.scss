@@ -1,28 +1,31 @@
 .edit-page {
-
   padding: 20px 60px;
 
   .page-content {
-    background-color: #FFF;
+    background-color: #fff;
 
     .edit-form {
       padding: 20px;
-
-
+      text-align: center;
+      
       .submit-button-container {
-        justify-content: flex-end;
+        justify-content: center;
 
-        .submit-button{
+        .return-button {
           width: 100%;
         }
 
-        .delete-button{
+        .submit-button {
+          width: 100%;
+        }
+
+        .delete-button {
           width: 100%;
         }
       }
 
-      .input-style{
-        width: 100%;
+      .input-style {
+        width: 50%;
       }
 
       .mat-error {
@@ -30,4 +33,7 @@
       }
     }
   }
+}
+.form-container {
+  margin: auto;
 }

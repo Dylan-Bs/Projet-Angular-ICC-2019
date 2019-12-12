@@ -4,6 +4,7 @@ nav ul{
     justify-content: space-between;
     width: 95vw;
     list-style: none;
+    margin: auto;
 }
 a {
     color: inherit;
