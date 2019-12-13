@@ -10,20 +10,23 @@ import { Erreur404Component } from './erreur404/erreur404.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdminGuard } from './services/admin.guard';
 import { ProfGuard } from './services/prof.guard';
+import { paths } from './app-paths';
+import { PathResolveService } from './path-resolve.service';
 
 
 const routes: Routes = [
-  { path: '', component: AccueilComponent },
-  { path: 'formulaire', component: CollecteComponent },
-  { path: 'rgpd', component: RgpdComponent },
-  { path: 'connexion', component: ConnexionComponent },
-  { path: 'extranet', loadChildren: () => import('./extranet/extranet.module').then(m => m.ExtranetModule) },
-  { path: '**', component: Erreur404Component }
+  { path: '', pathMatch: 'full', redirectTo: paths.accueil },
+  { path: paths.accueil, component: AccueilComponent },
+  { path: paths.formulaire, component: CollecteComponent },
+  { path: paths.rgpd, component: RgpdComponent },
+  { path: paths.connexion, component: ConnexionComponent },
+  { path: paths.extranet, loadChildren: () => import('./extranet/extranet.module').then(m => m.ExtranetModule) },
+  { path: '**', resolve: { path: PathResolveService }, component: Erreur404Component }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
   providers: [AuthGuard, AdminGuard, ProfGuard]
 })

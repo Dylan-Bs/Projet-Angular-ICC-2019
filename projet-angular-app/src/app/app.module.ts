@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 //Formulaire
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatDialogModule } from '@angular/material';
 //Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -21,6 +21,7 @@ import { Erreur404Component } from './erreur404/erreur404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExtranetfRoutingModule } from './extranet/extranet-routing.module';
 import { AppRoutingModule } from './app-routing.module';
+import { PathResolveService } from './path-resolve.service';
 
 
 @NgModule({
@@ -47,12 +48,14 @@ import { AppRoutingModule } from './app-routing.module';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule,
     HttpClientModule,
     ExtranetfRoutingModule
   ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
-  ]
+  ],
+  providers: [PathResolveService]
 })
 export class AppModule { }

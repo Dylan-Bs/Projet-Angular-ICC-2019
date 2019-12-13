@@ -6,12 +6,13 @@ import { ProfGuard } from 'src/app/services/prof.guard';
 import { StatsComponent } from './stats/stats.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import { ViewDetailsResolver } from './view-details/view-details.resolver';
+import { paths } from 'src/app/app-paths';
 
 
 const profRoutes: Routes = [
-  { path: '', component: ListeEtudComponent },
-  { path: 'stats', canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
-  { path: 'view/:id', component: ViewDetailsComponent, resolve: { data: ViewDetailsResolver } }
+  { path: paths.empty, component: ListeEtudComponent },
+  { path: paths.stats, canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
+  { path: paths.details_pr, component: ViewDetailsComponent, resolve: { data: ViewDetailsResolver } }
 ];
 
 @NgModule({

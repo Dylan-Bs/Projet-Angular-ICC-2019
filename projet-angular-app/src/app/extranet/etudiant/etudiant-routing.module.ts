@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditionComponent } from './edition/edition.component';
 import { EditionResolver } from './edition/edition.resolver';
+import { paths } from 'src/app/app-paths';
 
 
 
 const etudiantRoutes: Routes = [
     {
-      path: 'edit/:id',
+      path: paths.details_et,
       component: EditionComponent,
       resolve: { data: EditionResolver },
     }
