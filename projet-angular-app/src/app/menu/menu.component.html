@@ -7,12 +7,9 @@
                 <li *ngIf="conne.connecte == false"><a href routerLink='/formulaire'>Inscription</a></li>
                 <li *ngIf="conne.connecte == false"><a href routerLink='/connexion'>Connexion</a></li>
                 <li *ngIf="conne.role>1 && conne.connecte == true"><a href routerLink='/extranet/admin'>Lister les utilisateurs</a></li>
-                <!-- <li *ngIf="conne.role>0 && conne.connecte == true"><a href routerLink='/prof'>Etudiants de l'option</a></li> -->
                 <li *ngIf="conne.role==1 && conne.connecte == true"><a href routerLink='extranet/prof'>Lister les étudiants</a></li>
-                <!-- <li><a href routerLink='/admin'>Liste des utilisateurs</a></li>  -->
                 <li *ngIf="conne.role==1 && conne.connecte == true"><a href routerLink='/extranet/prof/stats'>Afficher les statistiques</a></li>
                 <li *ngIf="conne.role==0 && conne.connecte == true"><a href routerLink='/extranet/etudiant/edit/{{conne.userId}}'>Mon Profil</a></li>
-                <!-- <li><a href routerLink='/edit/{{conne.userId}}'>Profil</a></li> -->
                 <li *ngIf="conne.connecte == true"><a href routerLink='/connexion'>Déconnexion</a></li>
             </ul>
         </mat-toolbar-row>

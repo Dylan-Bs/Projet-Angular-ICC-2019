@@ -108,7 +108,6 @@ export class CollecteComponent implements OnInit {
     .then(
       res => {
         this.resetFields();
-        //this.router.navigate(['/']);
         this.conne.form_send=true;
         console.log("formulaire envoyé avec succès");
       }
