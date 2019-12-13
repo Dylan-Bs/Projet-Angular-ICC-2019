@@ -10,9 +10,9 @@ import { paths } from 'src/app/app-paths';
 
 
 const profRoutes: Routes = [
-  { path: paths.empty, component: ListeEtudComponent },
+  { path: paths.empty, canActivate: [AuthGuard, ProfGuard], component: ListeEtudComponent },
   { path: paths.stats, canActivate: [AuthGuard, ProfGuard], component: StatsComponent },
-  { path: paths.details_pr, component: ViewDetailsComponent, resolve: { data: ViewDetailsResolver } }
+  { path: paths.details_pr, canActivate: [AuthGuard, ProfGuard], component: ViewDetailsComponent, resolve: { data: ViewDetailsResolver } }
 ];
 
 @NgModule({
