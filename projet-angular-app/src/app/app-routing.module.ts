@@ -36,7 +36,7 @@ const routes: Routes = [
   // { path:'admin', loadChildren: () => import('./extranet/admin/admin.module').then(mod => mod.AdminModule)},
   // { path:'etudiant', loadChildren: () => import('./extranet/etudiant/etudiant.module').then(mod => mod.EtudiantModule)},
   // { path:'prof', loadChildren: () => import('./extranet/prof/prof.module').then(mod => mod.ProfModule)},
-  { path:'extranet', loadChildren: () => import('./extranet/extranet.module').then(mod => mod.ExtranetModule)},
+  { path:'extranet', loadChildren: () => import('./extranet/extranet.module').then(m => m.ExtranetModule)},
   // { path: 'admin', component: GestionDesComptesComponent }, // pour le dev
   // {path:'admin', canActivate: [AuthGuard, AdminGuard], component:GestionDesComptesComponent},
   // { path: 'details/:id', component: EditUserComponent, resolve: { data: EditUserResolver } },
