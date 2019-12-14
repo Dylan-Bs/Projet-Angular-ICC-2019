@@ -77,7 +77,7 @@ export class ConnexionComponent implements OnInit {
         this.role = "Professseur"
         break;
       case 2:
-        this.role = "Adminieeeestrateur"
+        this.role = "Administrateur"
         break;
       default:
         break;
