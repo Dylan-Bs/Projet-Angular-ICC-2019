@@ -30,7 +30,6 @@ export class ListeEtudComponent implements OnInit {
   getData() {
     this.firebaseService.getEtudByOption(this.conne.userOption)
       .subscribe(result => {
-        console.log("option =",this.conne.userOption) //pour le dev
         this.items = result;
         this.promo_filtered_items = result;
         this.name_filtered_items = result;

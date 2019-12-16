@@ -6,7 +6,6 @@ import { MatButtonModule, MatInputModule, MatSliderModule, MatSelectModule, MatC
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { ConnexionService } from 'src/app/services/connexion.service';
 import { EditUserResolver } from './edit-user/edit-user.resolver';
 
 
@@ -28,6 +27,6 @@ import { EditUserResolver } from './edit-user/edit-user.resolver';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [ConnexionService, EditUserResolver],
+  providers: [EditUserResolver],
 })
 export class AdminModule { }

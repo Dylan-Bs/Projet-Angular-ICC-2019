@@ -7,7 +7,6 @@ import { ProfRoutingModule } from './prof-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatInputModule, MatSliderModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule } from '@angular/material';
-import { ConnexionService } from 'src/app/services/connexion.service';
 import { ViewDetailsResolver } from './view-details/view-details.resolver';
 
 
@@ -29,6 +28,6 @@ import { ViewDetailsResolver } from './view-details/view-details.resolver';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [ConnexionService, ViewDetailsResolver],
+  providers: [ViewDetailsResolver],
 })
 export class ProfModule { }
