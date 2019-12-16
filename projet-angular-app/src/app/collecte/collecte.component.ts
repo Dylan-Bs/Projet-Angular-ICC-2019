@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { FirebaseService } from '../services/firebase.service';
 import { ConnexionService } from '../services/connexion.service';
 
@@ -27,43 +27,53 @@ export class CollecteComponent implements OnInit {
     {
       name: 'Pau',
       option: [
-        {value: 'icc', viewValue: 'Ingénierie Cloud Computing'},
-        {value: 'iapau', viewValue: 'Intelligence Artificielle'},
-        {value: 'imsi', viewValue: 'Ingénierie Mathématique et Simulation Numérique'},
+        { value: 'icc', viewValue: 'Ingénierie Cloud Computing' },
+        { value: 'iapau', viewValue: 'Intelligence Artificielle' },
+        { value: 'imsi', viewValue: 'Ingénierie Mathématique et Simulation Numérique' },
       ]
     },
     {
       name: 'Cergy',
       option: [
-        {value: 'inem', viewValue: 'Informatique Embarquée'},
-        {value: 'iacergy', viewValue: 'Intelligence Artificielle'},
-        {value: 'vc', viewValue: 'Visual Computing'},
-        {value: 'fintech', viewValue: 'Finance et Technologie'},
+        { value: 'inem', viewValue: 'Informatique Embarquée' },
+        { value: 'iacergy', viewValue: 'Intelligence Artificielle' },
+        { value: 'vc', viewValue: 'Visual Computing' },
+        { value: 'fintech', viewValue: 'Finance et Technologie' },
       ]
     },
   ];
-  
 
   indeterminate = false;
   labelPosition = 'after';
   disabled = false;
 
   validation_messages = {
-   'name': [
-     { type: 'required', message: 'Le nom est requis' }
-   ],
-   'surname': [
-     { type: 'required', message: 'Le prénom est requis' }
-   ],
-   'promo': [
-     { type: 'required', message: 'Promo is required. Between 2000 and 2100' },
-   ]
- };
+    'email': [
+      { type: 'required', message: 'L\' adresse mail est requise' },
+      { type: 'email', message: 'Entrez une adresse valide' }
+    ],
+    'password': [
+      { type: 'required', message: 'Le mot de passe est requis' },
+      { type: 'minlength', message: 'Le mot de passe doit faire minimum 7 caractères' }
+    ],
+    'name': [
+      { type: 'required', message: 'Le nom est requis' }
+    ],
+    'surname': [
+      { type: 'required', message: 'Le prénom est requis' }
+    ],
+    'promo': [
+      { type: 'required', message: 'La promotion est requise. Entre 2000 et 2100' },
+    ],
+    'optionsIng3Control': [
+      { type: 'required', message: 'L\' option est requise' },
+    ],
+  };
 
   constructor(
     private fb: FormBuilder,
     public firebaseService: FirebaseService,
-    public conne:ConnexionService,
+    public conne: ConnexionService,
   ) { }
 
   ngOnInit() {
@@ -72,24 +82,24 @@ export class CollecteComponent implements OnInit {
 
   createForm() {
     this.exampleForm = this.fb.group({
-      email: ['', Validators.required ],
-      password: ['', Validators.required ],
-      name: ['', Validators.required ],
-      surname: ['', Validators.required ],
-      promo: ['', Validators.required ],
-      optionsIng3Control: ['', Validators.required ],
+      email: ['', [Validators.email, Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(7)]],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      promo: ['', Validators.required],
+      optionsIng3Control: ['', Validators.required],
       entreprise: [''],
       ville: [''],
-      salaire: ['' ],
+      salaire: [''],
       autorisationCollecte: ['']
     });
   }
 
 
-  resetFields(){
+  resetFields() {
     this.exampleForm = this.fb.group({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.email, Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(7)]),
       name: new FormControl('', Validators.required),
       surname: new FormControl('', Validators.required),
       promo: new FormControl('', Validators.required),
@@ -102,16 +112,15 @@ export class CollecteComponent implements OnInit {
   }
 
 
-  onSubmit(value){
+  onSubmit(value) {
     console.log(value)
     this.firebaseService.createUser(value)
-    .then(
-      res => {
-        this.resetFields();
-        this.conne.form_send=true;
-        console.log("formulaire envoyé avec succès");
-      }
-    )
+      .then(
+        res => {
+          this.resetFields();
+          this.conne.form_send = true;
+          console.log("formulaire envoyé avec succès");
+        }
+      )
   }
-
 }
