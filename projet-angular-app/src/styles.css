@@ -3,8 +3,8 @@
 /* Available pre-built themes:
 deeppurple-amber.css
 indigo-pink.css
-pink-bluegrey.css
-purple-green.css */
+pink-bluegrey.css (dark theme)
+purple-green.css  (dark theme)*/
 
 html, body { height: 100%; overflow-x:hidden;}
 body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif;}
