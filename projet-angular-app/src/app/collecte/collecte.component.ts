@@ -62,9 +62,6 @@ export class CollecteComponent implements OnInit {
     'surname': [
       { type: 'required', message: 'Le prénom est requis' }
     ],
-    'promo': [
-      { type: 'required', message: 'La promotion est requise. Entre 2000 et 2100' },
-    ],
     'optionsIng3Control': [
       { type: 'required', message: 'L\' option est requise' },
     ],
