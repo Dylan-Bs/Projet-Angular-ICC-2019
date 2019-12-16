@@ -4,7 +4,6 @@ import { EditionComponent } from './edition/edition.component';
 import { EtudiantRoutingModule } from './etudiant-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule } from '@angular/material';
-import { ConnexionService } from 'src/app/services/connexion.service';
 import { EditionResolver } from './edition/edition.resolver';
 
 
@@ -28,6 +27,6 @@ import { EditionResolver } from './edition/edition.resolver';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [ConnexionService, EditionResolver],
+  providers: [EditionResolver],
 })
 export class EtudiantModule { }

@@ -18,6 +18,6 @@ export class ConnexionService {
     this.user=[];
     this.role=0;
     this.userId='';
-    this.userOption='imsi'; //pour le dev, bug avec les profs
+    this.userOption=''; //pour le dev, bug avec les profs
    }
 }
