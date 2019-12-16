@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-//Formulaire
+// Formulaire
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatDialogModule } from '@angular/material';
-//Firebase
+// Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-//Lecture de fichiers dans les assets
-import { HttpClientModule } from '@angular/common/http';
-//Composants
+// Lecture de fichiers dans les assets
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+// Composants
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -17,11 +17,14 @@ import { CollecteComponent } from './collecte/collecte.component';
 import { RgpdComponent } from './rgpd/rgpd.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
-//Modules
+// Modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExtranetfRoutingModule } from './extranet/extranet-routing.module';
 import { AppRoutingModule } from './app-routing.module';
+// Services
 import { PathResolveService } from './path-resolve.service';
+import { CacheService } from './services/cache.service';
+import { CacheInterceptorService } from './services/cache-interceptor.service';
 
 
 @NgModule({
@@ -56,6 +59,10 @@ import { PathResolveService } from './path-resolve.service';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [PathResolveService]
+  providers: [PathResolveService, CacheService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CacheInterceptorService,
+    multi: true
+  }]
 })
 export class AppModule { }

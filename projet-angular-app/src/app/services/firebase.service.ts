@@ -9,7 +9,6 @@ export class FirebaseService {
   constructor(public db: AngularFirestore) { }
 
   getUser(userKey) {
-    console.log(this.db.collection('users').doc(userKey).snapshotChanges())
     return this.db.collection('users').doc(userKey).snapshotChanges();
   }
 
