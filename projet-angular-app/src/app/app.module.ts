@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // Formulaire
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatDialogModule } from '@angular/material';
-// Firebase
+import { MatButtonModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatDialogModule, MatSliderModule } from '@angular/material';
+//Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
@@ -52,6 +52,7 @@ import { CacheInterceptorService } from './services/cache-interceptor.service';
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
+    MatSliderModule,
     HttpClientModule,
     ExtranetfRoutingModule
   ],

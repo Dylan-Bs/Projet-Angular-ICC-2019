@@ -9,8 +9,8 @@ export class ConnexionService {
   form_send:boolean;
   user: Array<any>;
   role:Number;
-  userId:String;
-  userOption:String;
+  userId:string;
+  userOption:string;
 
   constructor() {
     this.connecte=false;
